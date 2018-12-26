@@ -5,6 +5,7 @@
   "author": "Jepser Bernardino <jepsersk8@gmail.com>",
   "license": "MIT",
   "devDependencies": {
+    "jest": "^23.6.0",
     "microbundle": "^0.9.0",
     "react": "^16.7.0",
     "react-dom": "^16.7.0"

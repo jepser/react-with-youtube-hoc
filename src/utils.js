@@ -1,26 +1,24 @@
-import { GAPI_URL } from './contants'
-
-const getScriptTags = () => {
+const getScriptTags = (src) => {
   const scriptTags = document.getElementsByTagName('head')[0].childNodes
-  const gapiEmbedScriptTags = [].filter.call(scriptTags, script => {
-    return script.src === GAPI_URL
+  const filteredScriptTags = [].filter.call(scriptTags, script => {
+    return script.src === src
   })
-  return gapiEmbedScriptTags
+  return filteredScriptTags
 }
 
-export const scriptTagExists = () => {
-  const scriptTags = getScriptTags()
+export const scriptTagExists = (src) => {
+  const scriptTags = getScriptTags(src)
 
   return !!scriptTags.length
 }
 
-export const createGoogleScriptTag = () => {
-  const googleScript = document.createElement('script')
-  googleScript.src = GAPI_URL
-  googleScript.id = 'gapi-youtube'
-  googleScript.async = true
-  googleScript.defer = true
-  document.body.appendChild(googleScript)
+export const createScriptTag = ({ id, src }) => {
+  const scriptTag = document.createElement('script')
+  scriptTag.src = src
+  scriptTag.id = id
+  scriptTag.async = true
+  scriptTag.defer = true
+  document.body.appendChild(scriptTag)
 
-  return googleScript
+  return scriptTag
 }

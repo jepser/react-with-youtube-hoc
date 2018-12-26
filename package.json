@@ -1,0 +1,16 @@
+{
+  "name": "with-youtube-api",
+  "version": "1.0.0",
+  "main": "src/index.js",
+  "author": "Jepser Bernardino <jepsersk8@gmail.com>",
+  "license": "MIT",
+  "devDependencies": {
+    "microbundle": "^0.9.0",
+    "react": "^16.7.0",
+    "react-dom": "^16.7.0"
+  },
+  "scripts": {
+    "build": "microbundle",
+    "dev": "microbundle watch"
+  }
+}

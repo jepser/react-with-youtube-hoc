@@ -1,15 +1,21 @@
-import { Component } from 'react'
-import { GAPI_URL } from './contants'
+import * as React from 'react'
 import { loadYoutubeAPI } from './youtube-api'
 
-const withYoutube = token => WrappedComponent => {
-  return class extends Component {
-    constructor () {
-      super()
-      this.state = {
-        loaded: false,
-        api: null
-      }
+interface WithYoutubeState {
+  loaded: boolean
+  api: any
+}
+
+interface WithYoutubeProps {
+  youtubeApi: any
+}
+
+const withYoutube = (token: string) => 
+  <P extends object>(WrappedComponent: React.ComponentType<P>) => {
+  return class extends React.Component<P & WithYoutubeProps, WithYoutubeState> {
+    state: WithYoutubeState = {
+      loaded: false,
+      api: null
     }
 
     componentDidMount () {
